@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                  url('https://images.unsplash.com/photo-1587614203976-365c74645e83?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: linear-gradient(to right, #8e2de2, #4a00e0); /* purple gradient */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .navbar .logo {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffd700;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 50px 40px;
+      border-radius: 18px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .container h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .container p {
+      font-size: 1.2rem;
+      color: #444;
+      font-weight: 400;
+    }
+
+    .wave {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 40px 20px;
+        padding: 30px 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar a {
+        margin: 5px 0 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">📘 Student Dashboard</div>
+    <div class="nav-links">
+      <a href="/profile">Profile</a>
+      <a href="/test">Test</a>
+      <a href="/books">Books</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="wave">👋</div>
+    <h1>Welcome to the Student Dashboard</h1>
+    <p>Select a section from the navigation bar above to begin.</p>
+  </div>
+
+</body>
+</html>

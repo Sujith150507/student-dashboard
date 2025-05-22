@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take a Test</title>
+
+  <!-- Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.8)
+        ),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1350&q=80") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: rgba(0, 122, 255, 0.95);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+
+    nav .menu a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 1rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 80px);
+      padding: 2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 2.5rem 3rem;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      color: #1e3d59;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    select,
+    input {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.6rem;
+      background-color: #f9f9f9;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background: linear-gradient(to right, #28a745, #218838);
+      color: white;
+      border: none;
+      padding: 0.75rem 2.2rem;
+      font-size: 1rem;
+      border-radius: 0.6rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #218838, #1c7430);
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1e3d59;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    📘 Dashboard
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">Profile</a>
+      <a href="#">Books</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>📝 Take a Test</h2>
+      <form id="testForm">
+        <div class="form-group">
+          <label for="language">Select Language:</label>
+          <select id="language" required>
+            <option value="">-- Choose --</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="C">C Language</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="internal">Internal Mark:</label>
+          <input type="number" id="internal" placeholder="Enter internal mark" required />
+        </div>
+        <div class="form-group">
+          <label for="external">External Mark:</label>
+          <input type="number" id="external" placeholder="Enter external mark" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('testForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const internal = parseFloat(document.getElementById('internal').value);
+      const external = parseFloat(document.getElementById('external').value);
+      const avg = (internal + external) / 2;
+
+      let grade = '';
+      if (avg >= 90) grade = 'A+';
+      else if (avg >= 75) grade = 'A';
+      else if (avg >= 60) grade = 'B';
+      else if (avg >= 45) grade = 'C';
+      else grade = 'F';
+
+      document.getElementById('result').innerText =
+        `Total Average: ${avg.toFixed(2)} → Grade: ${grade}`;
+    });
+  </script>
+</body>
+</html>

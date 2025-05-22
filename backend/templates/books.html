@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Books</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
+      ),
+      url("https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1350&q=80") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .upload-card {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 1rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      padding: 2.5rem 3rem;
+      width: 100%;
+      max-width: 550px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 1.4rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      background-color: #f9f9f9;
+    }
+
+    button.upload-btn {
+      width: 100%;
+      background: linear-gradient(to right, #218838, #1e7e34);
+      color: white;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    button.upload-btn:hover {
+      background: linear-gradient(to right, #1e7e34, #166e2e);
+    }
+
+    .back-btn {
+      margin-top: 1.5rem;
+      display: inline-block;
+      text-decoration: none;
+      background-color: #fff;
+      color: #007bff;
+      border: 1px solid #007bff;
+      padding: 0.5rem 1.2rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="upload-card">
+    <h2>📚 Upload a Book</h2>
+    <form action="/books" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">Book Title</label>
+        <input type="text" id="title" name="title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="file">Choose File (PDF, DOCX, etc.)</label>
+        <input type="file" id="file" name="file" required />
+      </div>
+
+      <button type="submit" class="upload-btn">📤 Upload Book</button>
+    </form>
+
+    <a href="/dashboard" class="back-btn">⬅ Back to Dashboard</a>
+  </div>
+
+</body>
+</html>
